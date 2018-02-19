@@ -19,8 +19,14 @@ export default class App extends Component {
   }
 
   async componentWillMount() {
-    const docs = await getAllUsers();
-    this.setState({ docs });
+    const users = {
+      name: 'Joaninha',
+      age: '10/10/2000',
+    }
+    // const usersInsert = await insertUsers(users);
+    const allUsers = await getAllUsers();
+    console.log(allUsers);
+    // this.setState({ docs });
   }
 
   renderItem(item) {
@@ -28,9 +34,6 @@ export default class App extends Component {
       <View>
         <Text>
           {item.doc.name}
-        </Text>
-        <Text>
-          {item.doc.age}
         </Text>
       </View>
     );
