@@ -5,7 +5,8 @@ import {
   FlatList,
 } from 'react-native';
 
-import { getAllUsers, insertUsers } from './users';
+import userRepository from './db/userRepository';
+import realm from './db/allScheema';
 
 const uuidV4 = require('uuid/v4');
 
@@ -20,13 +21,14 @@ export default class App extends Component {
 
   async componentWillMount() {
     const users = {
+      id: 1,
       name: 'Joaninha',
       age: '10/10/2000',
     }
     // const usersInsert = await insertUsers(users);
-    const allUsers = await getAllUsers();
-    console.log(allUsers);
-    // this.setState({ docs });
+    const allUsers = await userRepository.queryAll();
+    // const s = await userRepository.insert(users);
+    this.setState({ docs: allUsers[0] });
   }
 
   renderItem(item) {
@@ -41,13 +43,11 @@ export default class App extends Component {
 
   render() {
     return (
-      <FlatList
-        style={{
-          flex: 1,
-        }}
-        data={this.state.docs}
-        renderItem={({ item }) => this.renderItem(item)}
-      />
+      <View>
+        <Text>
+          {this.state.docs.name}
+        </Text>
+      </View>      
     );
   }
 }
