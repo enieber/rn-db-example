@@ -5,9 +5,11 @@ import {
   FlatList,
 } from 'react-native';
 
-import { getAllUsers, insertUsers } from './users';
+import { userOffline } from './db/users';
+import { setup } from './db/db';
 
 const uuidV4 = require('uuid/v4');
+setup();
 
 export default class App extends Component {
   constructor(props) {
@@ -15,36 +17,22 @@ export default class App extends Component {
     this.state = {
       docs: [],
     }
-
   }
 
   async componentWillMount() {
-    const docs = await getAllUsers();
-    this.setState({ docs });
-  }
-
-  renderItem(item) {
-    return (
-      <View>
-        <Text>
-          {item.doc.name}
-        </Text>
-        <Text>
-          {item.doc.age}
-        </Text>
-      </View>
-    );
+    const save = await userOffline.insert(`(name) value ("João De Sá")`, [])
+    const docs = await userOffline.allDocs();
+    console.log(docs);
+    // this.setState({ docs });
   }
 
   render() {
     return (
-      <FlatList
-        style={{
-          flex: 1,
-        }}
-        data={this.state.docs}
-        renderItem={({ item }) => this.renderItem(item)}
-      />
+      <View>
+        <Text>
+          {this.state.docs.rows ? this.state.docs.rows[0].doc.name : 'carregando...'}
+        </Text>
+      </View>
     );
   }
 }
