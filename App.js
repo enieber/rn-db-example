@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 
 import { userOffline } from './db/users';
+import { productsOffline } from './db/products';
 import { setup } from './db/db';
 
 const uuidV4 = require('uuid/v4');
@@ -20,18 +21,34 @@ export default class App extends Component {
   }
 
   async componentWillMount() {
-    // const save = await userOffline.insert(`(?, ?)`, [1, 'João de Sá']);
+    // const save = await productsOffline.insert(`(?, ?)`, ['Bom briu', 1.90]);
     // console.log(save);
-    const docs = await userOffline.get('');
-    const item = docs.item(0)
-    this.setState({ docs: item });
+    const doc1 = await userOffline.get('');
+    const user = doc1.item(0);
+    const doc2 = await productsOffline.get('');
+    const product = doc2.item(0);
+    const docs = {
+      user,
+      product,
+    };
+
+    this.setState({ docs });
   }
 
   render() {
     return (
       <View>
         <Text>
-          {this.state.docs ? this.state.docs.name : 'carregando...'}
+          Nome
+        </Text>
+        <Text>
+          {this.state.docs.user ? this.state.docs.user.name : 'carregando...'}
+        </Text>
+        <Text>
+          Produtos
+        </Text>
+        <Text>
+          {this.state.docs.product ? `${this.state.docs.product.name} - R$ ${this.state.docs.product.value}` : 'carregando...'}
         </Text>
       </View>
     );
