@@ -20,17 +20,18 @@ export default class App extends Component {
   }
 
   async componentWillMount() {
-    const save = await userOffline.insert(`(name) value ("João De Sá")`, [])
-    const docs = await userOffline.allDocs();
-    console.log(docs);
-    // this.setState({ docs });
+    // const save = await userOffline.insert(`(?, ?)`, [1, 'João de Sá']);
+    // console.log(save);
+    const docs = await userOffline.get('');
+    const item = docs.item(0)
+    this.setState({ docs: item });
   }
 
   render() {
     return (
       <View>
         <Text>
-          {this.state.docs.rows ? this.state.docs.rows[0].doc.name : 'carregando...'}
+          {this.state.docs ? this.state.docs.name : 'carregando...'}
         </Text>
       </View>
     );

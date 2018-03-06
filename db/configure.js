@@ -1,3 +1,9 @@
-import SQLite from 'react-native-sqlite-2';
+import SQLite from 'react-native-sqlite-storage';
 
-export default (dbName, versionName) => SQLite.openDatabase(`${dbName}.db`, versionName, '', 1);
+
+const setup = (dbName, versionName, openCB, errorCB) => {
+  const db = SQLite.openDatabase(`${dbName}.db`, versionName, "Test Database", 200000, openCB, errorCB);
+  return db;
+}
+
+export default setup;

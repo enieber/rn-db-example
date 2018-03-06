@@ -6,12 +6,11 @@ const repository = (nameTable) => {
     try {
       let items = [];
       connection.transaction((txn) => {
-        txn.executeSql(`SELECT * FROM ${nameTable} WHERE ${where}`, [], (tx, res) => {
+        txn.executeSql(`SELECT * FROM ${nameTable} ${where}`, [], (tx, res) => {
           items = res.rows;
+          fulfill(items);
         });
       });
-      console.log(items);
-      fulfill(items);
     } catch (err) {
       const msg = `Faill, ${err}`;
       console.warn(msg);
@@ -23,17 +22,16 @@ const repository = (nameTable) => {
     try {
       let result = {};
       connection.transaction((txn) => {
-        const sql = `INSERT INTO ${nameTable} ${params}`;
+        const sql = `INSERT INTO ${nameTable} VALUES ${params}`;
         txn.executeSql(sql, values, (tx, res) => {
           debugger
           console.log(tx, res);
           fulfill(result);
-        },
-      (err) => {
-        console.warn(err);
-      });
+        }, (err) => {
+          throw {name : "ExecuteSqlError", msg: err };
+        });
       }, (e) => {
-        console.log(e);
+         throw {name : "ConnectionTransactionError", msg: e };
       });
     } catch (err) {
       const msg = `Faill Insert in ${nameTable}, ${err}`;
@@ -61,6 +59,7 @@ const repository = (nameTable) => {
       let items = [];
       connection.transaction((txn) => {
         txn.executeSql(`SELECT * FROM ${nameTable}`, [], (tx, res) => {
+          console.log(res);
           items = res.rows;
         });
       });
