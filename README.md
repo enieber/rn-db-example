@@ -1,10 +1,10 @@
 # react-native using database
 
 ## PouchDB
-in branch master
+in branch **master**
 
 ## Realm
-in branch realm
+in branch **realm**
 
 ## Sqlite
-in branch sqlite
+in branch **sqlite**
