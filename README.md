@@ -4,7 +4,7 @@ This project show examples how to use database with app in react-native.
 
 ## Todo
 
-- [x] [PuchDB](https://pouchdb.com/)
+- [x] [PouchDB](https://pouchdb.com/)
 - [x] [Realm](https://realm.io/)
 - [x] [Sqlite](https://sqlite.org/index.html)
 - [ ] [WatermelonDB](https://github.com/Nozbe/WatermelonDB)
