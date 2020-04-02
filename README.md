@@ -7,9 +7,9 @@ This project show examples how to use database with app in react-native.
 - [x] [PouchDB](https://pouchdb.com/)
 - [x] [Realm](https://realm.io/)
 - [x] [Sqlite](https://sqlite.org/index.html)
-- [ ] [WatermelonDB](https://github.com/Nozbe/WatermelonDB) [issue #4](https://github.com/enieber/rn-db-example/issues/2)
-- [ ] [Vasern](https://github.com/vasern/vasern) [issue #2](https://github.com/enieber/rn-db-example/issues/2)
-- [ ] [react-native-fast-storage](https://github.com/FidMe/react-native-fast-storage) [issue #3](https://github.com/enieber/rn-db-example/issues/3) 
+- [ ] [WatermelonDB](https://github.com/Nozbe/WatermelonDB) - [issue #4](https://github.com/enieber/rn-db-example/issues/2)
+- [ ] [Vasern](https://github.com/vasern/vasern) - [issue #2](https://github.com/enieber/rn-db-example/issues/2)
+- [ ] [react-native-fast-storage](https://github.com/FidMe/react-native-fast-storage) - [issue #3](https://github.com/enieber/rn-db-example/issues/3) 
 
 
 ### PouchDB
