@@ -4,14 +4,17 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "dependencies": {
     "pouchdb-adapter-asyncstorage": "^6.4.0",
     "pouchdb-react-native": "^6.4.0",
     "react": "16.2.0",
     "react-native": "0.63.0",
-    "uuid": "^3.2.1"
+    "uuid": "^3.2.1",
+    "snyk": "^1.360.0"
   },
   "devDependencies": {
     "babel-jest": "22.2.2",
@@ -21,5 +24,6 @@
   },
   "jest": {
     "preset": "react-native"
-  }
+  },
+  "snyk": true
 }
