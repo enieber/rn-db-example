@@ -14,7 +14,7 @@
     "react": "16.5.0",
     "react-native": "0.63.0",
     "uuid": "^3.2.1",
-    "snyk": "^1.360.0"
+    "snyk": "^1.425.4"
   },
   "devDependencies": {
     "babel-jest": "22.2.2",
