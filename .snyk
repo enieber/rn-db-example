@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.16.0
+version: v1.19.0
 ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
@@ -494,3 +494,5 @@ patch:
         patched: '2020-07-09T03:31:40.567Z'
     - react-native > @react-native-community/cli > metro > metro-config > metro > metro-react-native-babel-preset > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
         patched: '2020-07-09T03:31:40.567Z'
+    - react-native > @react-native-community/cli > metro > metro-transform-worker > metro > async > lodash:
+        patched: '2021-03-12T22:15:33.868Z'
