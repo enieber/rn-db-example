@@ -12,7 +12,7 @@
     "pouchdb-adapter-asyncstorage": "^6.4.0",
     "pouchdb-react-native": "^6.4.0",
     "react": "16.5.0",
-    "react-native": "0.64.0",
+    "react-native": "0.64.1",
     "uuid": "^3.2.1",
     "snyk": "^1.518.0"
   },
